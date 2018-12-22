@@ -4,14 +4,14 @@ services:
     networks:
       pinet:
         ipv4_address: 10.0.0.11
-    image: "akalair/pi-hole:v4.1_armhf"
+    image: "visibilityspots/cloudflared:arm"
     container_name: "cloudflared"
     restart: unless-stopped
   pihole:
     networks:
       pinet:
         ipv4_address: 10.0.0.10
-    image: "diginc/pi-hole:arm_v3.1"
+    image: "akalair/pi-hole:v4.1_armhf"
     container_name: "pi-hole"
     environment:
         - ServerIP   # Chef writes this out to a .env file that the SystemD unit imports
