@@ -4,7 +4,7 @@ services:
     networks:
       pinet:
         ipv4_address: 10.0.0.11
-    image: "visibilityspots/cloudflared:arm"
+    image: "akalair/pi-hole:v4.1_armhf"
     container_name: "cloudflared"
     restart: unless-stopped
   pihole:
