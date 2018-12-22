@@ -1,0 +1,37 @@
+version: '3'
+services:
+  cloudflared:
+    networks:
+      pinet:
+        ipv4_address: 10.0.0.11
+    image: "visibilityspots/cloudflared:arm"
+    container_name: "cloudflared"
+    restart: unless-stopped
+  pihole:
+    networks:
+      pinet:
+        ipv4_address: 10.0.0.10
+    image: "diginc/pi-hole:arm_v3.1"
+    container_name: "pi-hole"
+    environment:
+        - ServerIP   # Chef writes this out to a .env file that the SystemD unit imports
+        - "DNS1=10.0.0.11#54"  # Port 54 as its DNS over HTTPS
+        - "DNS2=10.0.0.11#54"  # Defaults to using Googles resolver if you dont set this to something
+    ports:
+      - "80:80/tcp"
+      - "443:443/tcp"
+      - "53:53/tcp"
+      - "53:53/udp"
+    volumes:
+      - /pihole-data/pihole:/etc/pihole/
+      - /pihole-data/dnsmasq:/etc/dnsmasq.d/
+    restart: unless-stopped
+
+# PiHole needs an IP for the Cloudflare upstream resolver, to set a static IP
+# you need to define a custom network
+networks:
+  pinet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.0.0.0/16
