@@ -1,11 +1,5 @@
-# pi-dns CHANGELOG
-
-This file is used to list changes made in each version of the pi-dns cookbook.
+# CHANGELOG
 
 # 0.1.0
 
 Initial release.
-
-- change 0
-- change 1
-

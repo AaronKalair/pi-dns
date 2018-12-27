@@ -9,6 +9,7 @@ verifier:
   name: inspec
 
 platforms:
+    # Something with systemd
     - name: ubuntu-18.04
 
 suites:

@@ -1,7 +1,7 @@
 name 'pi-dns'
 maintainer 'Aaron Kalair'
 maintainer_email 'aaronkalair@gmail.com'
-license 'All Rights Reserved'
+license 'Apache'
 description 'Installs/Configures pihole with cloudflared'
 long_description 'Installs/Configures pihole with cloudflared'
 version '0.1.0'
