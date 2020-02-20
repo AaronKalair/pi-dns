@@ -11,7 +11,7 @@ services:
     networks:
       pinet:
         ipv4_address: 10.0.0.10
-    image: "akalair/pi-hole:v4.3.2-1_armhf"
+    image: "akalair/pi-hole:4.3.2-1_armhf"
     container_name: "pi-hole"
     environment:
         - ServerIP   # Chef writes this out to a .env file that the SystemD unit imports

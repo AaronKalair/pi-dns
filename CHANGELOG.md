@@ -1,4 +1,6 @@
 # CHANGELOG
+# 0.3.0
+- Fix image tag
 
 # 0.2.0
 - New piHole image
